@@ -8,66 +8,65 @@ export default function Login({ onLogin }) {
 
   const handleLogin = async () => {
     if (!email) {
-      setMessage("Please enter your email");
+      setMessage("Please enter a valid email address.");
       return;
     }
 
     setLoading(true);
-    const { error } = await supabase.auth.signInWithOtp({ email });
+    setMessage("");
+
+    const { error } = await supabase.auth.signInWithOtp({
+      email,
+      options: { emailRedirectTo: window.location.origin },
+    });
+
     setLoading(false);
 
-    if (error) setMessage(error.message);
-    else {
-      setMessage("✨ Check your email for the magic link!");
-      // Simulate login for demo purposes
-      setTimeout(() => onLogin(email), 1500); // automatically set user after a short delay
+    if (error) {
+      setMessage(error.message);
+    } else {
+      setMessage("We’ve sent a secure login link to your email.");
+      setTimeout(() => onLogin({ email }), 1500);
     }
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-blue-200 to-purple-300 p-4 animate-fadeIn">
-      <div className="bg-white/70 backdrop-blur-lg rounded-3xl shadow-2xl p-10 w-full max-w-md transform transition-all duration-500 hover:scale-105">
-        <h1 className="text-4xl font-extrabold mb-6 text-center text-blue-700">
-          Welcome to Room Finder
-        </h1>
+    <div className="login-bg">
+      {/* Animated grid background */}
+      <div className="grid-bg">
+        {Array.from({ length: 100 }).map((_, i) => (
+          <span key={i} className="grid-tile" />
+        ))}
+      </div>
 
-        {/* Logo Circle */}
-        <div className="mx-auto w-28 h-28 mb-6 rounded-full bg-white shadow-lg flex items-center justify-center animate-bounce">
+      {/* Login Card */}
+      <div className="login-card animate-fadeIn">
+        <div className="logo-wrapper">
           <img
             src="https://i.ibb.co/Xr7b8yPQ/images.png"
-            alt="Logo"
-            className="w-20 h-20"
+            alt="Room Finder Logo"
           />
         </div>
 
+        <h1 className="title">Room Finder</h1>
+        <p className="subtitle">Securely find and manage rooms with ease</p>
+
+        <div className="divider" />
+
         <input
           type="email"
-          placeholder="Enter your email"
+          placeholder="you@example.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full p-4 mb-4 rounded-2xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-inner transition"
         />
 
-        <button
-          onClick={handleLogin}
-          disabled={loading}
-          className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 rounded-2xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
-        >
-          {loading ? "Sending..." : "Send Magic Link"}
+        <button onClick={handleLogin} disabled={loading}>
+          {loading ? "Sending secure link..." : "Send Magic Link"}
         </button>
 
-        {message && (
-          <p className="mt-4 text-center text-green-700 font-medium animate-pulse">
-            {message}
-          </p>
-        )}
+        {message && <p className="message">{message}</p>}
 
-        {/* Thank You Animation */}
-        {message && (
-          <div className="mt-6 text-center text-purple-700 font-bold animate-fadeInUp">
-            🎉 Thank you! You are one step away from logging in!
-          </div>
-        )}
+        <p className="footer-text">🔒 Password-less & secure authentication</p>
       </div>
     </div>
   );

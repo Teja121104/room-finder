@@ -1,4 +1,10 @@
-/* ===== Global Background ===== */
+/* ================= GLOBAL SETUP ================= */
+html,
+body,
+#root {
+  height: 100%;
+}
+
 body {
   font-family: "Inter", sans-serif;
   background: linear-gradient(120deg, #f0f4ff, #e0f7fa);
@@ -7,7 +13,7 @@ body {
   color: #333;
 }
 
-/* ===== Navbar Styling ===== */
+/* ================= NAVBAR ================= */
 nav {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -29,186 +35,23 @@ nav button:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* ===== Profile Dropdown ===== */
-.animate-fadeIn {
-  animation: fadeIn 0.4s ease forwards;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+/* ================= PROFILE DROPDOWN ================= */
 .profile-card {
   border-radius: 10px;
   padding: 1rem;
+  background: white;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  background: white;
-  color: #333;
 }
 
-/* ===== Room Cards ===== */
+/* ================= ROOM CARDS ================= */
 .room-card {
   background: white;
   border-radius: 12px;
   overflow: hidden;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
-}
-
-.room-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-.room-card img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  border-bottom: 1px solid #eee;
-}
-
-.room-card h3 {
-  color: #1e40af;
-}
-
-.room-card p {
-  color: #555;
-  font-size: 0.9rem;
-  line-height: 1.3;
-}
-
-/* ===== Add Room Form ===== */
-form {
-  background: white;
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-form input,
-form select,
-form textarea {
-  width: 100%;
-  padding: 0.6rem 1rem;
-  margin-bottom: 0.8rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 0.95rem;
-  transition: all 0.2s ease;
-}
-
-form input:focus,
-form select:focus,
-form textarea:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 5px rgba(37, 99, 235, 0.3);
-  outline: none;
-}
-
-/* ===== Buttons ===== */
-button {
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-button.bg-blue-600:hover,
-.custom-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Login card specific styling */
-.login-card {
-  background: white;
-  border-radius: 2rem;
-  padding: 2rem;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  width: 100%;
-  max-width: 400px;
-  text-align: center;
-  transition: all 0.5s ease;
-}
-
-.login-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-}
-
-.login-card input {
-  margin-bottom: 1rem;
-}
-
-.login-card button {
-  font-weight: 600;
-}
-
-/* ===== Loading Animation ===== */
-.animate-pulse {
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0% {
-    opacity: 0.7;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.7;
-  }
-}
-
-/* ===== Grid Styling ===== */
-.grid {
-  display: grid;
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-
-/* ===== Responsive Improvements ===== */
-@media screen and (max-width: 768px) {
-  .room-card img {
-    height: 200px;
-  }
-  form {
-    padding: 1.5rem;
-  }
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (min-width: 1025px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-/* ===== Room Cards Black Details Box ===== */
-.room-card {
-  display: flex;
-  flex-direction: column;
-  border-radius: 12px;
-  overflow: hidden;
-  background: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .room-card:hover {
@@ -222,208 +65,1030 @@ button.bg-blue-600:hover,
   object-fit: cover;
 }
 
-/* Black box for room details */
-.room-card .bg-black {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+.room-card h3 {
+  color: #1e40af;
 }
 
-.room-card h3,
 .room-card p {
-  margin: 0;
-}
-/* ===== Fade-in Animation ===== */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
 
-.animate-fadeIn {
-  animation: fadeIn 0.7s ease forwards;
+/* ================= FORMS ================= */
+form {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* ===== Input & Button Shadows ===== */
-input:focus {
-  box-shadow: 0 0 10px rgba(37, 99, 235, 0.3);
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  margin-bottom: 0.8rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
 }
 
-/* ===== Smooth Hover on button ===== */
+form input:focus,
+form select:focus,
+form textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 6px rgba(37, 99, 235, 0.3);
+}
+
+/* ================= BUTTONS ================= */
 button {
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
-/* ===== Body Font ===== */
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* ================= GRID ================= */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .room-card img {
+    height: 200px;
+  }
+
+  form {
+    padding: 1.5rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1025px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ================================================= */
+/* =============== LOGIN PAGE ONLY ================= */
+/* ================================================= */
+
+.login-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border-radius: 22px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.15);
+}
+
+/* Logo */
+.logo-wrapper {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 1.2rem;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.logo-wrapper img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Login text */
+.title {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #4338ca;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+/* Divider */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #c7d2fe, transparent);
+  margin: 1.2rem 0;
+}
+
+/* Login input */
+.login-card input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+}
+
+.login-card input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+}
+
+/* Login button */
+.login-card button {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  font-weight: 600;
+}
+
+.login-card button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Message */
+.message {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #16a34a;
+}
+
+/* Footer */
+.footer-text {
+  margin-top: 1.4rem;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease forwards;
+}
+/* Full-page center wrapper */
+.login-page {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #e0e7ff, #f5d0fe);
+}
+
+/* Login card stays a box */
+.login-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border-radius: 22px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.15);
+}
+/* ================= LOGIN BACKGROUND ================= */
+
+.login-bg {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(180deg, #a9c9ff 0%, #ffbbec 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Grid container */
+.grid-bg {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  z-index: 0;
+}
+
+/* Grid tiles */
+.grid-tile {
+  position: relative;
+}
+
+.grid-tile::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.35rem;
+  height: 0.35rem;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.4s ease;
+}
+
+/* Hover effect */
+.grid-tile:hover::before {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* ================= LOGIN CARD LAYER ================= */
+
+.login-card {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border-radius: 22px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+}
+/* ================= HOME NAVBAR ================= */
+
+.home-navbar {
+  position: relative;
+  background: #2563eb;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.home-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+/* Button container with spacing */
+.home-nav-actions {
+  display: flex;
+  gap: 0.75rem; /* SPACE BETWEEN BUTTONS */
+  flex-wrap: wrap;
+}
+
+/* ================= BUTTON BASE ================= */
+
+.nav-btn {
+  position: relative;
+  padding: 0.55rem 1.1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  color: white;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Button colors */
+.nav-btn.primary {
+  background: #3b82f6;
+}
+.nav-btn.success {
+  background: #22c55e;
+}
+.nav-btn.warning {
+  background: #facc15;
+  color: #1f2937;
+}
+.nav-btn.danger {
+  background: #ef4444;
+}
+
+/* ================= SHEEN ANIMATION ================= */
+
+.nav-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+}
+
+.nav-btn[anim="sheen"]:not(.toggled)::after {
+  animation: sheen 2.8s ease-in-out infinite;
+}
+
+@keyframes sheen {
+  0% {
+    left: -120%;
+  }
+  60% {
+    left: 120%;
+  }
+  100% {
+    left: 120%;
+  }
+}
+/* Hero Header Card */
+.hero-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.hero-card {
+  background: white;
+  border-radius: 2rem;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  max-width: 400px;
+  width: 100%;
+}
+
+.hero-logo {
+  width: 120px;
+  margin: 0 auto 1rem;
+}
+
+.hero-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #1e40af;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Buttons sheen animation */
+.sheen-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.sheen-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0)
+  );
+  transform: skewX(-25deg);
+  transition: all 0.5s ease;
+}
+
+.sheen-button:hover::after {
+  left: 125%;
+}
+.header-logo-card {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.header-logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 5px solid white;
+  padding: 0.5rem;
+  background-color: #3b82f6; /* blue circle like login page */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+}
+.logo-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem; /* space between logo and title */
+}
+
+.header-logo-card {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  padding: 0.5rem;
+  background-color: #3b82f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.header-logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.profile-card {
+  position: absolute;
+  top: 100%; /* just below navbar */
+  right: 0;
+  width: 220px;
+  background-color: white; /* solid contrast */
+  color: #111; /* dark text */
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  z-index: 50; /* ensures it stays above other elements */
+  animation: fadeIn 0.3s ease forwards;
+}
+.room-card {
+  perspective: 800px;
+  margin: 1rem;
+}
+
+.room-card-inner {
+  position: relative;
+  background: linear-gradient(135deg, #1a1a1a, #262626);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.room-card-inner:hover {
+  transform: rotateX(10deg) rotateY(10deg);
+  filter: brightness(1.1);
+}
+
+.room-card-glare {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    125deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.05) 45%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 55%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.room-card-inner:hover .room-card-glare {
+  opacity: 1;
+}
+
+.room-card-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.room-card-content {
+  padding: 1rem;
+  color: white;
+  text-align: center;
+}
+
+.room-card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+  background: linear-gradient(45deg, #00ffaa, #00a2ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px rgba(0, 255, 170, 0.3);
+}
+
+.room-card-location,
+.room-card-price,
+.room-card-details,
+.room-card-contact {
+  font-size: 0.9rem;
+  margin: 0.1rem 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.room-card-details .highlight {
+  color: #00ffaa;
+}
+/* Full page background */
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #a9c9ff;
+  background-image: linear-gradient(180deg, #a9c9ff 0%, #ffbbec 100%);
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Container for the room cards */
+.rooms-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 90%;
+  padding: 2rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Optional: subtle interactive grid effect behind cards */
+.cards-grid-effect {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  pointer-events: none;
+}
+
+.cards-grid-effect .tile {
+  position: relative;
+}
+
+.cards-grid-effect .tile::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.3rem;
+  height: 0.3rem;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s linear;
+}
+
+.cards-grid-effect .tile:hover::before {
+  width: 3rem;
+  height: 3rem;
+  transition: all 0.07s linear;
+}
+/* Footer container */
+footer {
+  background-color: #f3f4f6; /* light gray */
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  border-top: 2px solid #d1d5db;
+}
+
+/* Contact section */
+footer .contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  color: #1e3a8a; /* dark blue */
+}
+
+footer .contact-section button {
+  background-color: #2563eb; /* blue */
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+footer .contact-section button:hover {
+  background-color: #1d4ed8; /* darker blue */
+}
+
+/* Social icons */
+footer .social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+footer .social-icons a img {
+  width: 2rem;
+  height: 2rem;
+  transition: transform 0.2s ease;
+}
+
+footer .social-icons a img:hover {
+  transform: scale(1.2);
+}
+
+/* Optional: make footer stick at bottom if content is short */
 body {
-  font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-/* ===== Fade-in Animation ===== */
-@keyframes fadeIn {
+
+div.min-h-screen {
+  flex: 1; /* makes main content grow */
+}
+/* Footer container */
+footer {
+  background: linear-gradient(135deg, #a9c9ff 0%, #ffbbec 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Animated glow effect */
+footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0.2),
+    transparent 70%
+  );
+  filter: blur(50px);
+  z-index: 0;
+  animation: glowPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
   0% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fadeIn {
-  animation: fadeIn 0.7s ease forwards;
-}
-
-.animate-fadeIn.delay-200 {
-  animation-delay: 0.2s;
-}
-.animate-fadeIn.delay-400 {
-  animation-delay: 0.4s;
-}
-.animate-fadeIn.delay-600 {
-  animation-delay: 0.6s;
-}
-.animate-fadeIn.delay-800 {
-  animation-delay: 0.8s;
-}
-
-/* ===== Bounce Animation for Logo ===== */
-@keyframes bounce {
-  0%,
-  100% {
-    transform: translateY(0);
+    transform: scale(1);
+    opacity: 0.6;
   }
   50% {
-    transform: translateY(-15px);
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
   }
 }
 
-.animate-bounce {
-  animation: bounce 2s infinite;
+/* Footer content styles */
+footer .contact-section,
+footer .social-icons {
+  position: relative;
+  z-index: 1; /* above glow */
 }
-/* ===== Fade-in Animation ===== */
-@keyframes fadeIn {
+
+/* Contact message */
+footer .contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #1e3a8a; /* dark blue for text */
+  text-align: center;
+}
+
+footer .contact-section button {
+  background: linear-gradient(45deg, #00ffaa, #5c67ff);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(92, 103, 255, 0.5);
+}
+
+footer .contact-section button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(92, 103, 255, 0.8);
+}
+
+/* Social icons row */
+footer .social-icons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+footer .social-icons a img {
+  width: 2.5rem;
+  height: 2.5rem;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 5px rgba(92, 103, 255, 0.5));
+}
+
+footer .social-icons a img:hover {
+  transform: scale(1.3) rotate(-10deg);
+  filter: drop-shadow(0 0 15px rgba(92, 103, 255, 0.8));
+}
+
+/* Make footer text & buttons stand out on background */
+footer p,
+footer h3 {
+  color: #ffffffcc;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+/* Footer container */
+footer {
+  background: linear-gradient(135deg, #a9c9ff 0%, #3b82f6 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 1rem 2rem; /* thin footer */
+  display: flex;
+  flex-direction: row; /* row-wise layout */
+  justify-content: space-between; /* spread content */
+  align-items: center;
+  gap: 2rem;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Animated glow effect */
+footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0.2),
+    transparent 70%
+  );
+  filter: blur(40px);
+  z-index: 0;
+  animation: glowPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
   0% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.animate-fadeIn {
-  animation: fadeIn 0.7s ease forwards;
-}
-.animate-fadeIn.delay-200 {
-  animation-delay: 0.2s;
-}
-.animate-fadeIn.delay-400 {
-  animation-delay: 0.4s;
-}
-
-/* ===== Bounce Slow for Circle ===== */
-@keyframes bounceSlow {
-  0%,
-  100% {
-    transform: translateY(0);
+    transform: scale(1);
+    opacity: 0.5;
   }
   50% {
-    transform: translateY(-15px);
-  }
-}
-.animate-bounceSlow {
-  animation: bounceSlow 2.5s infinite;
-}
-
-/* ===== Pop-up Thank You ===== */
-@keyframes popUp {
-  0% {
-    opacity: 0;
-    transform: scale(0.5) rotate(-10deg);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.2) rotate(5deg);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) rotate(0deg);
-  }
-}
-.animate-popUp {
-  animation: popUp 0.8s ease forwards;
-}
-/* ===== Fade-in Animation ===== */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.animate-fadeIn {
-  animation: fadeIn 0.7s ease forwards;
-}
-.animate-fadeIn.delay-200 {
-  animation-delay: 0.2s;
-}
-.animate-fadeIn.delay-400 {
-  animation-delay: 0.4s;
-}
-
-/* ===== Bounce Slow for Circle ===== */
-@keyframes bounceSlow {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-15px);
-  }
-}
-.animate-bounceSlow {
-  animation: bounceSlow 2.5s infinite;
-}
-
-/* ===== Pop-up Thank You ===== */
-@keyframes popUp {
-  0% {
-    opacity: 0;
-    transform: scale(0.5) rotate(-10deg);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.2) rotate(5deg);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) rotate(0deg);
-  }
-}
-.animate-popUp {
-  animation: popUp 0.8s ease forwards;
-}
-
-/* ===== Pulse Animation ===== */
-@keyframes pulse {
-  0% {
+    transform: scale(1.1);
     opacity: 0.7;
   }
-  50% {
-    opacity: 1;
-  }
   100% {
-    opacity: 0.7;
+    transform: scale(1);
+    opacity: 0.5;
   }
 }
-.animate-pulse {
-  animation: pulse 1.5s infinite;
+
+/* Footer content sections */
+footer .contact-section,
+footer .social-icons {
+  position: relative;
+  z-index: 1; /* above glow */
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+/* Contact message */
+footer .contact-section p {
+  color: #ffffffcc; /* semi-white */
+  font-weight: 500;
+  font-size: 1rem;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  margin: 0;
+}
+
+/* Send message button */
+footer .contact-section button {
+  background: linear-gradient(45deg, #00ffaa, #5c67ff);
+  color: white;
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(92, 103, 255, 0.5);
+}
+
+footer .contact-section button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(92, 103, 255, 0.8);
+}
+
+/* Social icons – horizontal row */
+footer .social-icons a img {
+  width: 2rem;
+  height: 2rem;
+  margin: 0;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 5px rgba(92, 103, 255, 0.5));
+}
+
+footer .social-icons a img:hover {
+  transform: scale(1.2) rotate(-10deg);
+  filter: drop-shadow(0 0 15px rgba(92, 103, 255, 0.8));
+}
+/* Search & Filter buttons */
+button {
+  transition: all 0.3s ease;
+}
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* ================= BUTTON BASE ================= */
+
+.search-btn,
+.filter-btn,
+.reset-btn,
+.send-msg-btn {
+  position: relative;
+  padding: 0.55rem 1.1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  color: white;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Button colors */
+.search-btn {
+  background: #8b5cf6; /* Purple */
+}
+.filter-btn {
+  background: #6366f1; /* Indigo */
+}
+.reset-btn {
+  background: #ef4444; /* Red */
+}
+.send-msg-btn {
+  background: #10b981; /* Green */
+}
+
+/* ================= SHEEN ANIMATION ================= */
+
+.search-btn::after,
+.filter-btn::after,
+.reset-btn::after,
+.send-msg-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+}
+
+.search-btn[anim="sheen"]:not(.toggled)::after,
+.filter-btn[anim="sheen"]:not(.toggled)::after,
+.reset-btn[anim="sheen"]:not(.toggled)::after,
+.send-msg-btn[anim="sheen"]:not(.toggled)::after {
+  animation: sheen 2.8s ease-in-out infinite;
+}
+
+@keyframes sheen {
+  0% {
+    left: -120%;
+  }
+  60% {
+    left: 120%;
+  }
+  100% {
+    left: 120%;
+  }
+}
+.nav-btn,
+.search-btn,
+.filter-btn,
+.reset-btn,
+.send-msg-btn {
+  position: relative;
+  padding: 0.55rem 1.1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  color: white;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.nav-btn.primary,
+.search-btn {
+  background: #3b82f6;
+}
+.nav-btn.success,
+.filter-btn {
+  background: #22c55e;
+}
+.nav-btn.warning {
+  background: #facc15;
+  color: #1f2937;
+}
+.nav-btn.danger,
+.reset-btn {
+  background: #ef4444;
+}
+.send-msg-btn {
+  background: #10b981;
+}
+
+.nav-btn::after,
+.search-btn::after,
+.filter-btn::after,
+.reset-btn::after,
+.send-msg-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+}
+
+.nav-btn[anim="sheen"]:not(.toggled)::after,
+.search-btn[anim="sheen"]:not(.toggled)::after,
+.filter-btn[anim="sheen"]:not(.toggled)::after,
+.reset-btn[anim="sheen"]:not(.toggled)::after,
+.send-msg-btn[anim="sheen"]:not(.toggled)::after {
+  animation: sheen 2.8s ease-in-out infinite;
+}
+
+@keyframes sheen {
+  0% {
+    left: -120%;
+  }
+  60% {
+    left: 120%;
+  }
+  100% {
+    left: 120%;
+  }
 }

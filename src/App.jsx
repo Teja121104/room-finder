@@ -31,5 +31,9 @@ export default function App() {
     setUser(null);
   };
 
-  return user ? <Home user={user} onLogout={handleLogout} /> : <Login />;
+  return user ? (
+    <Home user={user} onLogout={handleLogout} />
+  ) : (
+    <Login onLogin={(user) => setUser(user)} />
+  );
 }
